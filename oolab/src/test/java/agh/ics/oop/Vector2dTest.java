@@ -13,6 +13,11 @@ class Vector2dTest {
         Vector2d b = new Vector2d(1, 1);
         assertTrue(a.equals(b) == true);
     }
+    @Test void equalsVectorZero(){
+        Vector2d a = new Vector2d(0, 0);
+        Vector2d b = new Vector2d(-0, 0);
+        assertTrue(a.equals(b) == true);
+    }
     @Test void toStringTest1(){
         Vector2d a = new Vector2d(1,1);
         String s = "(1,1)";

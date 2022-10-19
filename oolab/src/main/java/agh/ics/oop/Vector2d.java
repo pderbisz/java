@@ -4,6 +4,12 @@ class Vector2d {
     public final int x;
     public final int y;
     public Vector2d(int x, int y){
+        if(x == -0){
+            x=0;
+        }
+        if(y == -0){
+            y=0;
+        }
         this.x = x;
         this.y = y;
     }
@@ -71,6 +77,12 @@ class Vector2d {
 
         int x_r=(-1)*this.x;
         int y_r=(-1)*this.y;
+        if(x_r == -0){
+            x_r=0;
+        }
+        if(y_r == -0){
+            y_r=0;
+        }
         Vector2d result= new Vector2d(x_r, y_r);
         return result;
     }
