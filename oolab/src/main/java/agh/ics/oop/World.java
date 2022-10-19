@@ -3,19 +3,14 @@ import static java.lang.System.out;
 public class World {
     public static void main(String[] args){
         out.println("system wystartował");
-        Direction[] dirs=convert(moves);
+        Direction[] dirs=convert(args);
         run(dirs);
         out.println("system zakończył działanie");
     }
     static void run(Direction[] dirs){
         int size=dirs.length;
-       // out.println("Zwierzak ruszył się do przodu");
         out.println("Start");
         for(int i=0; i<size; i++){
-           /* out.print(moves[i]);
-            if (i<size-1){
-                out.print(", ");
-            } */
             switch(dirs[i]){
                 case f:
                     out.println("Zwierzak idzie do przodu");
@@ -35,21 +30,35 @@ public class World {
         out.println("Stop");
     }
     static Direction[] convert(String[] moves){
-        int size=moves.length;
+        int m=moves.length;
+      // out.println(moves.length);
+        int size=0;
+        for (int i=0; i<m; i++){
+            if(moves[i].equals("f") || (moves[i].equals("b")|| (moves[i].equals("r") ||(moves[i].equals("l"))))){
+                size++;
+            }
+        }
         Direction[] dirs = new Direction[size];
-        for(int i=0; i<size; i++){
+        int j=0;
+        for(int i=0; i<m; i++){
             switch(moves[i]){
                 case "f":
-                    dirs[i]=Direction.f;
+                    dirs[j]=Direction.f;
+                    j++;
                     break;
                 case "b":
-                    dirs[i]=Direction.b;
+                    dirs[j]=Direction.b;
+                    j++;
                     break;
                 case "r":
-                    dirs[i]=Direction.r;
+                    dirs[j]=Direction.r;
+                    j++;
                     break;
                 case "l":
-                    dirs[i]=Direction.l;
+                    dirs[j]=Direction.l;
+                    j++;
+                    break;
+                default:
                     break;
             }
         }
