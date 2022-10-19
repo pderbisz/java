@@ -3,8 +3,17 @@ import static java.lang.System.out;
 public class World {
     public static void main(String[] args){
         out.println("system wystartował");
-        Direction[] dirs=convert(args);
-        run(dirs);
+       // Direction[] dirs=convert(args);
+       // run(dirs);
+        Vector2d position1 = new Vector2d(1,2);
+        System.out.println(position1);
+        Vector2d position2 = new Vector2d(-2,1);
+        System.out.println(position2);
+        System.out.println(position1.add(position2));
+        MapDirection d = MapDirection.NORTH;
+        Vector2d test = d.toUnitVector();
+        d=d.previous();
+        System.out.println(d);
         out.println("system zakończył działanie");
     }
     static void run(Direction[] dirs){
