@@ -3,9 +3,9 @@ import static java.lang.System.out;
 public class World {
     public static void main(String[] args){
         out.println("system wystartował");
-       // Direction[] dirs=convert(args);
+       // Direction[] dirs=convert(args); //komendy z lab1
        // run(dirs);
-        Vector2d position1 = new Vector2d(1,2);
+       /* Vector2d position1 = new Vector2d(1,2); //lab2
         System.out.println(position1);
         Vector2d position2 = new Vector2d(-2,1);
         System.out.println(position2);
@@ -15,6 +15,21 @@ public class World {
         d=d.previous();
         System.out.println(d);
         out.println("system zakończył działanie");
+
+        */
+        //lab3
+        Animal sheep = new Animal();
+        out.println(sheep);
+        sheep.move(MoveDirection.RIGHT);
+        //out.println(sheep.currDir);
+        sheep.move(MoveDirection.FORWARD);
+        sheep.move(MoveDirection.FORWARD);
+        sheep.move(MoveDirection.FORWARD);
+        sheep.move(MoveDirection.FORWARD);
+        out.println(sheep);
+        MapDirection dirr=MapDirection.NORTH;
+        dirr=dirr.next();
+
     }
     static void run(Direction[] dirs){
         int size=dirs.length;

@@ -1,8 +1,8 @@
 package agh.ics.oop;
 
 class Vector2d {
-    public final int x;
-    public final int y;
+    public static int x;
+    public static int y;
     public Vector2d(int x, int y){
         if(x == -0){
             x=0;
