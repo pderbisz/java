@@ -9,6 +9,9 @@ public class Animal {
         currDir = MapDirection.NORTH;
         currPos = new Vector2d(2,2);
     }
+    public Animal(IWorldMap map){
+        
+    }
     public MapDirection getDir(){
         return currDir;
     }
