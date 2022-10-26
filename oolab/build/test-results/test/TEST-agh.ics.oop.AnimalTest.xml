@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="agh.ics.oop.AnimalTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2022-10-26T16:24:58" hostname="XPS13_PAWEL" time="0.055">
+<testsuite name="agh.ics.oop.AnimalTest" tests="13" skipped="0" failures="0" errors="0" timestamp="2022-10-26T17:02:56" hostname="XPS13_PAWEL" time="0.077">
   <properties/>
-  <testcase name="movementTestNoGet()" classname="agh.ics.oop.AnimalTest" time="0.029"/>
-  <testcase name="orientTestNoGet1()" classname="agh.ics.oop.AnimalTest" time="0.004"/>
+  <testcase name="movementTestNoGet()" classname="agh.ics.oop.AnimalTest" time="0.035"/>
+  <testcase name="orientTestNoGet1()" classname="agh.ics.oop.AnimalTest" time="0.005"/>
   <testcase name="positionTest1()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
   <testcase name="positionTest2()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
-  <testcase name="boundaryTest1()" classname="agh.ics.oop.AnimalTest" time="0.0"/>
+  <testcase name="boundaryTest1()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
   <testcase name="boundaryTest2()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
   <testcase name="inputTest1()" classname="agh.ics.oop.AnimalTest" time="0.002"/>
-  <testcase name="orientationTest1()" classname="agh.ics.oop.AnimalTest" time="0.004"/>
-  <testcase name="orientationTest2()" classname="agh.ics.oop.AnimalTest" time="0.0"/>
-  <testcase name="orientationTest3()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
-  <testcase name="orientationTest4()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
-  <testcase name="orientationTest5()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
-  <testcase name="inputTestNoGet()" classname="agh.ics.oop.AnimalTest" time="0.0"/>
+  <testcase name="orientationTest1()" classname="agh.ics.oop.AnimalTest" time="0.008"/>
+  <testcase name="orientationTest2()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
+  <testcase name="orientationTest3()" classname="agh.ics.oop.AnimalTest" time="0.0"/>
+  <testcase name="orientationTest4()" classname="agh.ics.oop.AnimalTest" time="0.002"/>
+  <testcase name="orientationTest5()" classname="agh.ics.oop.AnimalTest" time="0.003"/>
+  <testcase name="inputTestNoGet()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
   <system-out><![CDATA[2 2 WschĂłd
 2 2 PĂłĹ‚noc
 2 2 PĂłĹ‚noc

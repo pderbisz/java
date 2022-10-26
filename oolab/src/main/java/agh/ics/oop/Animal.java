@@ -21,7 +21,7 @@ public class Animal {
         String xS=Integer.toString(currPos.x);
         String yS=Integer.toString(currPos.y);
         String dS=currDir.toString();
-        String result=xS + " " + yS + " " + dS;
+        String result= "(" + xS + "," + yS + ") "  + dS;
 
         return result;
     }
@@ -70,7 +70,7 @@ public class Animal {
                 }
                 break;
             default:
-                out.println("zła wartość");
+               // out.println("zła wartość");
                 break;
         }
     }
