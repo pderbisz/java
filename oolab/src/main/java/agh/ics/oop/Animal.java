@@ -3,11 +3,17 @@ package agh.ics.oop;
 import static java.lang.System.out;
 
 public class Animal {
-     private static MapDirection currDir ;
-     private static Vector2d currPos;
+     private  MapDirection currDir ;
+     private  Vector2d currPos;
     public Animal(){
         currDir = MapDirection.NORTH;
         currPos = new Vector2d(2,2);
+    }
+    public MapDirection getDir(){
+        return currDir;
+    }
+    public Vector2d getPos(){
+        return currPos;
     }
     public String toString(){
        // Integer x1=currPos.x;
@@ -19,9 +25,9 @@ public class Animal {
 
         return result;
     }
-    private boolean isAt(Vector2d position){
+    boolean isAt(Vector2d position){
 
-        return this.currPos.equals(position);
+        return currPos.equals(position);
     }
     public void move(MoveDirection direction){
 
@@ -31,22 +37,22 @@ public class Animal {
                 //out.println("testdir");
                 break;
             case LEFT:
-                this.currDir=this.currDir.previous();
+                currDir= currDir.previous();
                 break;
             case FORWARD:
-                if(this.currDir == MapDirection.NORTH && this.currPos.y<4){
-                    this.currPos.y+=1;
+                if(currDir == MapDirection.NORTH && currPos.y<4){
+                    currPos.y+=1;
                     //out.println("test");
                    // out.println(this.currPos.x);
                 }
-                if(this.currDir == MapDirection.SOUTH && this.currPos.y>0){
-                    this.currPos.y-=1;
+                if(currDir == MapDirection.SOUTH && currPos.y>0){
+                    currPos.y-=1;
                 }
-                if(this.currDir == MapDirection.EAST && this.currPos.x<4){
-                    this.currPos.x+=1;
+                if(currDir == MapDirection.EAST && currPos.x<4){
+                    currPos.x+=1;
                 }
-                if(this.currDir == MapDirection.WEST && this.currPos.x>0){
-                    this.currPos.x-=1;
+                if(currDir == MapDirection.WEST && currPos.x>0){
+                    currPos.x-=1;
                 }
                 break;
             case BACKWARD:

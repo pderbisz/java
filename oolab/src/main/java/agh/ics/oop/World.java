@@ -30,9 +30,12 @@ public class World {
         //out.println(args.length);
         for(int i=0; i<steer.length; i++){
             sheep.move(steer[i]);
-            out.println("test");
+
         }
         out.println(sheep);
+
+        //Aby wykluczyć pojawianie się zwierząt na tym samym miejscu można przechowywać w jakiejś tablicy informacje na temat wszystkich zwierząt. Na podstawie tej tablicy, można wygenerować planszę 2d z zaznaczonymi zajętymi polami i wybrać odpowiednio jakieś niezajęte przy tworzeniu nowego zwierzęcia.
+        out.println("system zakończył działanie");
     }
     static void run(Direction[] dirs){
         int size=dirs.length;
@@ -55,6 +58,7 @@ public class World {
             }
         }
         out.println("Stop");
+
     }
     static Direction[] convert(String[] moves){
         int m=moves.length;

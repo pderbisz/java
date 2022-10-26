@@ -4,9 +4,7 @@ import static java.lang.System.out;
 
 public class OptionsParser {
     static public MoveDirection[] parse(String[] s){
-        for(int i=0; i<s.length; i++){
-            out.println(s[i]);
-        }
+
         int n=s.length;
         int size=0;
         for(int i=0; i<n; i++){
@@ -17,7 +15,7 @@ public class OptionsParser {
 
 
         }
-        System.out.println(size);
+        //System.out.println(size);
         MoveDirection[] result = new MoveDirection[size];
         int currIdx=0;
         for(int i=0; i<n; i++){
@@ -38,7 +36,7 @@ public class OptionsParser {
                 currIdx++;
             }
         }
-        System.out.println("cos");
+       // System.out.println("cos");
         return result;
 
     }

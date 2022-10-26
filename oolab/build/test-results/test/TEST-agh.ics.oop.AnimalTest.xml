@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="agh.ics.oop.AnimalTest" tests="10" skipped="0" failures="0" errors="0" timestamp="2022-10-26T12:13:17" hostname="XPS13_PAWEL" time="0.022">
+  <properties/>
+  <testcase name="positionTest1()" classname="agh.ics.oop.AnimalTest" time="0.011"/>
+  <testcase name="positionTest2()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
+  <testcase name="boundaryTest1()" classname="agh.ics.oop.AnimalTest" time="0.0"/>
+  <testcase name="boundaryTest2()" classname="agh.ics.oop.AnimalTest" time="0.0"/>
+  <testcase name="inputTest1()" classname="agh.ics.oop.AnimalTest" time="0.002"/>
+  <testcase name="orientationTest1()" classname="agh.ics.oop.AnimalTest" time="0.002"/>
+  <testcase name="orientationTest2()" classname="agh.ics.oop.AnimalTest" time="0.0"/>
+  <testcase name="orientationTest3()" classname="agh.ics.oop.AnimalTest" time="0.0"/>
+  <testcase name="orientationTest4()" classname="agh.ics.oop.AnimalTest" time="0.001"/>
+  <testcase name="orientationTest5()" classname="agh.ics.oop.AnimalTest" time="0.002"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
