@@ -131,7 +131,7 @@ public class AnimalTest {
        assertTrue(String.valueOf(cow).contains("2 4"));
        cow.move(MoveDirection.FORWARD);
        cow.move(MoveDirection.FORWARD);
-        assertTrue(String.valueOf(cow).contains("0 4"));
+       assertTrue(String.valueOf(cow).contains("0 4"));
     }
     @Test
     void inputTest1(){
