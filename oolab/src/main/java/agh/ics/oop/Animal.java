@@ -28,7 +28,7 @@ public class Animal {
         switch(direction){
             case RIGHT:
                currDir=currDir.next();
-                out.println("testdir");
+                //out.println("testdir");
                 break;
             case LEFT:
                 this.currDir=this.currDir.previous();
@@ -36,8 +36,8 @@ public class Animal {
             case FORWARD:
                 if(this.currDir == MapDirection.NORTH && this.currPos.y<4){
                     this.currPos.y+=1;
-                    out.println("test");
-                    out.println(this.currPos.x);
+                    //out.println("test");
+                   // out.println(this.currPos.x);
                 }
                 if(this.currDir == MapDirection.SOUTH && this.currPos.y>0){
                     this.currPos.y-=1;

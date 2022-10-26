@@ -20,16 +20,19 @@ public class World {
         //lab3
         Animal sheep = new Animal();
         out.println(sheep);
-        sheep.move(MoveDirection.RIGHT);
+       // sheep.move(MoveDirection.RIGHT);
         //out.println(sheep.currDir);
-        sheep.move(MoveDirection.FORWARD);
-        sheep.move(MoveDirection.FORWARD);
-        sheep.move(MoveDirection.FORWARD);
-        sheep.move(MoveDirection.FORWARD);
-        out.println(sheep);
-        MapDirection dirr=MapDirection.NORTH;
-        dirr=dirr.next();
+       // sheep.move(MoveDirection.FORWARD);
+       // sheep.move(MoveDirection.FORWARD);
+        //sheep.move(MoveDirection.FORWARD);
 
+        MoveDirection[] steer= OptionsParser.parse(args);
+        //out.println(args.length);
+        for(int i=0; i<steer.length; i++){
+            sheep.move(steer[i]);
+            out.println("test");
+        }
+        out.println(sheep);
     }
     static void run(Direction[] dirs){
         int size=dirs.length;
