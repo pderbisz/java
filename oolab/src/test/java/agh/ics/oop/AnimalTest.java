@@ -5,17 +5,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class AnimalTest {
     Animal cow = new Animal();
-
+    MapDirection directionTest=MapDirection.NORTH;
     @Test
     void orientationTest1(){
-        MapDirection directionTest= cow.getDir();
+      //  directionTest= cow.getDir();
         cow.move(MoveDirection.LEFT);
         cow.move(MoveDirection.RIGHT);
         assertEquals(directionTest,cow.getDir());
     }
+
     @Test
     void orientationTest2(){
-        MapDirection directionTest= cow.getDir();
+       // System.out.println(cow);
+        directionTest= cow.getDir();
         cow.move(MoveDirection.LEFT);
         cow.move(MoveDirection.LEFT);
         cow.move(MoveDirection.LEFT);
@@ -25,7 +27,8 @@ public class AnimalTest {
     }
     @Test
     void orientationTest3(){
-        MapDirection directionTest= cow.getDir();
+       // System.out.println(cow);
+        directionTest= cow.getDir();
         for(int i=0; i<3; i++){
             cow.move(MoveDirection.LEFT);
             directionTest=directionTest.previous();
@@ -34,7 +37,8 @@ public class AnimalTest {
     }
     @Test
     void orientationTest4(){
-        MapDirection directionTest= cow.getDir();
+        System.out.println(cow);
+        directionTest= cow.getDir();
         for(int i=0; i<3; i++){
             cow.move(MoveDirection.RIGHT);
             cow.move(MoveDirection.FORWARD);
@@ -44,14 +48,33 @@ public class AnimalTest {
     }
     @Test
     void orientationTest5(){
-        MapDirection directionTest= cow.getDir();
+        System.out.println(cow);
+        directionTest= cow.getDir();
         for(int i=0; i<3; i++){
             cow.move(MoveDirection.LEFT);
             directionTest=directionTest.next();
         }
         assertNotEquals(directionTest,cow.getDir());
     }
+    @Test
+    void orientTestNoGet1(){
+        // MapDirectionTest
+        cow.move(MoveDirection.RIGHT);
+        System.out.println(String.valueOf(cow));
+        assertTrue(String.valueOf(cow).contains("Wschód"));
+        cow.move(MoveDirection.LEFT);
+        cow.move(MoveDirection.LEFT);
+        assertTrue(String.valueOf(cow).contains("Zachód"));
+        cow.move(MoveDirection.LEFT);
+        cow.move(MoveDirection.FORWARD);
+        assertTrue(String.valueOf(cow).contains("Południe"));
+        cow.move(MoveDirection.RIGHT);
+        cow.move(MoveDirection.RIGHT);
+        assertTrue(String.valueOf(cow).contains("Północ"));
+
+    }
     Vector2d posTest= new Vector2d(2,3);
+
     @Test
     void positionTest1(){
 
@@ -98,6 +121,19 @@ public class AnimalTest {
         assertTrue(cow.isAt(posTest));
     }
     @Test
+    void movementTestNoGet(){
+       cow.move(MoveDirection.FORWARD);
+       assertTrue(String.valueOf(cow).contains("2 3"));
+       for(int i=0; i<10; i++){
+           cow.move(MoveDirection.FORWARD);
+       }
+       cow.move(MoveDirection.LEFT);
+       assertTrue(String.valueOf(cow).contains("2 4"));
+       cow.move(MoveDirection.FORWARD);
+       cow.move(MoveDirection.FORWARD);
+        assertTrue(String.valueOf(cow).contains("0 4"));
+    }
+    @Test
     void inputTest1(){
         posTest.x=3;
         posTest.y=4;
@@ -107,6 +143,15 @@ public class AnimalTest {
             cow.move(steer[i]);
         }
         assertTrue(cow.isAt(posTest));
+    }
+    @Test
+    void inputTestNoGet(){
+        String[] s = {"test", "f", "a", "forward", "", "r", "forward"};
+        MoveDirection[] steer= OptionsParser.parse(s);
+        for(int i=0; i<steer.length; i++){
+            cow.move(steer[i]);
+        }
+        assertTrue(String.valueOf(cow).contains("3 4"));
     }
 
 }
