@@ -3,25 +3,38 @@ import static java.lang.System.out;
 public class World {
     public static void main(String[] args){
         out.println("system wystartował");
+       // Direction[] dirs=convert(args); //komendy z lab1
+       // run(dirs);
+       /* Vector2d position1 = new Vector2d(1,2); //lab2
+        System.out.println(position1);
+        Vector2d position2 = new Vector2d(-2,1);
+        System.out.println(position2);
+        System.out.println(position1.add(position2));
+        MapDirection d = MapDirection.NORTH;
+        Vector2d test = d.toUnitVector();
+        d=d.previous();
+        System.out.println(d);
+        out.println("system zakończył działanie");
 
-       /* RectangularMap test= new RectangularMap(4, 4);
-        Animal sheep = new Animal(test);
+        */
+        //lab3
+        Animal sheep = new Animal();
+        out.println(sheep);
+       // sheep.move(MoveDirection.RIGHT);
+        //out.println(sheep.currDir);
+       // sheep.move(MoveDirection.FORWARD);
+       // sheep.move(MoveDirection.FORWARD);
+        //sheep.move(MoveDirection.FORWARD);
+
         MoveDirection[] steer= OptionsParser.parse(args);
+        //out.println(args.length);
         for(int i=0; i<steer.length; i++){
-
             sheep.move(steer[i]);
 
         }
-        out.println(test.animals);
-        out.println(test);
-        //out.println(sheep);
-        */
-        MoveDirection[] directions = new OptionsParser().parse(args);
-        IWorldMap map = new RectangularMap(10, 5);
-        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4)};
-        IEngine engine = new SimulationEngine(directions, map, positions);
-        out.println("test");
-        engine.run();
+        out.println(sheep);
+
+        //Aby wykluczyć pojawianie się zwierząt na tym samym miejscu można przechowywać w jakiejś tablicy informacje na temat wszystkich zwierząt. Na podstawie tej tablicy, można wygenerować planszę 2d z zaznaczonymi zajętymi polami i wybrać odpowiednio jakieś niezajęte przy tworzeniu nowego zwierzęcia.
         out.println("system zakończył działanie");
     }
     static void run(Direction[] dirs){

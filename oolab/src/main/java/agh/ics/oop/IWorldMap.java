@@ -46,3 +46,8 @@ public interface IWorldMap {
      */
     Object objectAt(Vector2d position);
 }
+Footer
+        © 2022 GitHub, Inc.
+        Footer navigation
+        Terms
+        Pri
