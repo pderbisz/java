@@ -3,8 +3,8 @@ import java.util.ArrayList;
 public class SimulationEngine implements IEngine{
     private MoveDirection[] moves;
     private Vector2d[] pos;
-    private ArrayList<Animal> animals;
-    private IWorldMap map;
+    public ArrayList<Animal> animals;
+    public IWorldMap map;
     private int n;
     public SimulationEngine(MoveDirection[] moves, IWorldMap map, Vector2d[] pos ){
         animals= new ArrayList<Animal>();
