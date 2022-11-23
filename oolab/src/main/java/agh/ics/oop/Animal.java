@@ -65,6 +65,11 @@ public class Animal {
 
         return currPos.equals(position);
     }
+    void positionChanged(Vector2d oldPosition, Vector2d newPosition){
+        for(int i=0; i<observers.size(); i++){
+            observers.get(i).positionChanged(oldPosition, newPosition);
+        }
+    }
     public void move(MoveDirection direction){
         Vector2d goal= new Vector2d(currPos.x, currPos.y);
 
@@ -116,7 +121,7 @@ public class Animal {
             //out.println(goal);
             Vector2d temp=new Vector2d(currPos.x, currPos.y);
             currPos=goal;
-            map.positionChanged(temp, currPos);
+            positionChanged(temp, currPos);
         }
     }
     void addObserver(IPositionChangeObserver observer){
@@ -125,9 +130,5 @@ public class Animal {
     void removeObserver(IPositionChangeObserver observer){
         observers.remove(observer);
     }
-    void positionChanged(Vector2d oldPosition, Vector2d newPosition){
-        for(int i=0; i<observers.size(); i++){
-            observers.get(i).positionChanged(oldPosition, newPosition);
-        }
-    }
+
 }

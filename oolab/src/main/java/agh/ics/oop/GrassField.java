@@ -38,13 +38,7 @@ public class GrassField extends AbstractWorldMap{
         }
         return true;
     }
-    public boolean place(Animal animal){
-        if(canMoveTo(animal.getPos())){
-            animals.put(animal.getPos(), animal);
-            return true;
-        }
-        return false;
-    }
+
     public boolean isOccupied(Vector2d position){
         if(animals.get(position)!= null || grasses.get(position) != null){
             return true;
