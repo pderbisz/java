@@ -1,27 +1,31 @@
 package agh.ics.oop;
 
 import static java.lang.System.out;
-
+import java.util.*;
 public class Animal {
      private  MapDirection currDir ;
      private  Vector2d currPos;
-     public IWorldMap map;
+     public AbstractWorldMap map;
+     private ArrayList<IPositionChangeObserver> observers;
     public Animal(){
         currDir = MapDirection.NORTH;
         currPos = new Vector2d(2,2);
         map = new RectangularMap(4, 4);
+        observers = new ArrayList<IPositionChangeObserver>();
     }
-    public Animal(IWorldMap map){
+    public Animal(AbstractWorldMap map){
         currDir = MapDirection.NORTH;
         currPos = new Vector2d(2,2);
         this.map=map;
+        observers = new ArrayList<IPositionChangeObserver>();
         //map.place(this);
 
     }
-    public Animal(IWorldMap map, Vector2d initialPosition){
+    public Animal(AbstractWorldMap map, Vector2d initialPosition){
         currDir = MapDirection.NORTH;
         currPos = initialPosition;
         this.map=map;
+        observers = new ArrayList<IPositionChangeObserver>();
        // map.place(this);
     }
     public MapDirection getDir(){
@@ -110,8 +114,20 @@ public class Animal {
         }
         if(map.canMoveTo(goal)){
             //out.println(goal);
+            Vector2d temp=new Vector2d(currPos.x, currPos.y);
             currPos=goal;
-
+            map.positionChanged(temp, currPos);
+        }
+    }
+    void addObserver(IPositionChangeObserver observer){
+        observers.add(observer);
+    }
+    void removeObserver(IPositionChangeObserver observer){
+        observers.remove(observer);
+    }
+    void positionChanged(Vector2d oldPosition, Vector2d newPosition){
+        for(int i=0; i<observers.size(); i++){
+            observers.get(i).positionChanged(oldPosition, newPosition);
         }
     }
 }

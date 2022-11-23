@@ -1,14 +1,17 @@
 package agh.ics.oop;
 import java.util.ArrayList;
 import java.util.Random;
+import java.util.HashMap;
 import java.lang.Math;
+import java.util.Collections;
+import java.util.*;
 public class GrassField extends AbstractWorldMap{
     private int n;
-    private ArrayList<Grass> grasses;
+    private HashMap<Vector2d, Grass> grasses;
     public GrassField(int n){
         this.n=n;
-        grasses=new ArrayList<Grass>();
-        animals=new ArrayList<Animal>();
+        grasses=new HashMap<Vector2d, Grass>();
+        animals=new HashMap<Vector2d, Animal>();
         int k=0;
         while(k!=n){
             Random rand= new Random();
@@ -17,84 +20,57 @@ public class GrassField extends AbstractWorldMap{
             int randA=rand.nextInt(a);
             int randB=rand.nextInt(a);
             Vector2d newVector= new Vector2d(randA, randB);
-            boolean free = true;
-
-            for(int i=0; i<grasses.size(); i++){
-                if(newVector.equals(grasses.get(i).getPos())){
-                    free = false;
-                }
-            }
-
-            if(free){
+            if(grasses.get(newVector)== null){
                 Grass newGrass= new Grass(newVector);
-                grasses.add(newGrass);
+                grasses.put(newVector, newGrass);
                 k+=1;
             }
+
         }
-        System.out.println(grasses.get(0));
+        //System.out.println(grasses.get(0));
     }
     public boolean canMoveTo(Vector2d position){
         if(position.x<0  || position.y<0 ){
             return false;
         }
-        for(int i=0; i<animals.size(); i++){
-            if(position.equals(animals.get(i).getPos())){
-                return false;
-            }
+        if(animals.get(position) != null){
+            return false;
         }
         return true;
     }
     public boolean place(Animal animal){
         if(canMoveTo(animal.getPos())){
-            animals.add(animal);
+            animals.put(animal.getPos(), animal);
             return true;
         }
         return false;
     }
     public boolean isOccupied(Vector2d position){
-        for(int i=0; i<animals.size(); i++){
-            if(position.equals(animals.get(i).getPos())){
-                return true;
-            }
-        }
-        for(int i=0; i<grasses.size(); i++){
-            if(position.equals(grasses.get(i).getPos())){
-                return true;
-            }
+        if(animals.get(position)!= null || grasses.get(position) != null){
+            return true;
         }
         return false;
     }
     public Object objectAt(Vector2d position){
-        for(int i=0; i<animals.size(); i++){
-            if(position.equals(animals.get(i).getPos())){
-                return animals.get(i);
-            }
+        if(animals.get(position)!= null){
+            return animals.get(position);
         }
-        for(int i=0; i<grasses.size(); i++){
-            if(position.equals(grasses.get(i).getPos())){
-                return grasses.get(i);
-            }
-        }
-        return null;
+        return grasses.get(position);
     }
     Vector2d findUpperRight(){
         int maxX=0;
         int maxY=0;
-        for(int i=0; i<animals.size(); i++){
-            if(animals.get(i).getPos().x>maxX){
-                maxX=animals.get(i).getPos().x;
-            }
-            if(animals.get(i).getPos().y>maxY){
-                maxY=animals.get(i).getPos().y;
-            }
+        Iterator<Vector2d> itrA=animals.keySet().iterator();
+        while(itrA.hasNext()){
+            Vector2d k=itrA.next();
+            maxX=Math.max(maxX, k.x);
+            maxY=Math.max(maxY, k.y);
         }
-        for(int i=0; i<grasses.size(); i++){
-            if(grasses.get(i).getPos().x>maxX){
-                maxX=grasses.get(i).getPos().x;
-            }
-            if(grasses.get(i).getPos().y>maxY){
-                maxY=grasses.get(i).getPos().y;
-            }
+        Iterator<Vector2d> itrB=grasses.keySet().iterator();
+        while(itrB.hasNext()){
+            Vector2d k=itrB.next();
+            maxX=Math.max(maxX, k.x);
+            maxY=Math.max(maxY, k.y);
         }
         return new Vector2d(maxX, maxY);
     }

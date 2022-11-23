@@ -8,7 +8,7 @@ public class SimulationEngineTest {
     void collisionTest1(){
         String[] strMoves={"f", "l", "f", "l", "r", "l", "f", "l", "f", "l", "f"};
         MoveDirection[] directions = new OptionsParser().parse(strMoves);
-        IWorldMap map = new RectangularMap(10, 5);
+        AbstractWorldMap map = new RectangularMap(10, 5);
         Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
         SimulationEngine engine = new SimulationEngine(directions, map, positions);
         engine.run();
@@ -21,7 +21,7 @@ public class SimulationEngineTest {
         Vector2d result2 = new Vector2d(3, 5);
         String[] strMoves={"f", "b", "r", "l", "f", "f", "r", "r", "f", "f", "f","f","f","f","f","f"};
         MoveDirection[] directions = new OptionsParser().parse(strMoves);
-        IWorldMap map = new RectangularMap(10, 5);
+        AbstractWorldMap map = new RectangularMap(10, 5);
         Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4) };
         SimulationEngine engine = new SimulationEngine(directions, map, positions);
         engine.run();
@@ -34,7 +34,7 @@ public class SimulationEngineTest {
         Vector2d testVector= new Vector2d(2, 2);
         String[] strMoves={};
         MoveDirection[] directions = new OptionsParser().parse(strMoves);
-        IWorldMap map = new RectangularMap(10, 5);
+        AbstractWorldMap map = new RectangularMap(10, 5);
         Vector2d[] positions = { new Vector2d(2,2), new Vector2d(2,2) };
         SimulationEngine engine = new SimulationEngine(directions, map, positions);
         engine.run();

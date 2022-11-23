@@ -1,5 +1,6 @@
 package agh.ics.oop;
 import java.util.ArrayList;
+import java.util.*;
 
 class RectangularMap extends AbstractWorldMap {
     private int h;
@@ -7,27 +8,19 @@ class RectangularMap extends AbstractWorldMap {
     public RectangularMap(int width, int height){
         h=height;
         w=width;
-        animals= new ArrayList<Animal>();
+        animals= new HashMap<Vector2d, Animal>();
     }
     public boolean canMoveTo(Vector2d position){
         if(position.x<0 || position.x>w || position.y<0 || position.y>h){
             return false;
         }
 
-        for(int i=0; i<animals.size(); i++){
-            if(position.equals(animals.get(i).getPos())){
-                return false;
-            }
-        }
-        return true;
-    }
-    public boolean place(Animal animal){
-            if(canMoveTo(animal.getPos())){
-                animals.add(animal);
-                return true;
+        if(animals.get(position)== null){
+            return true;
         }
         return false;
     }
+
     public boolean isOccupied(Vector2d position){
         return super.isOccupied(position);
     }

@@ -4,9 +4,9 @@ public class SimulationEngine implements IEngine{
     private MoveDirection[] moves;
     private Vector2d[] pos;
     public ArrayList<Animal> animals;
-    public IWorldMap map;
+    public AbstractWorldMap map;
     private int n;
-    public SimulationEngine(MoveDirection[] moves, IWorldMap map, Vector2d[] pos ){
+    public SimulationEngine(MoveDirection[] moves, AbstractWorldMap map, Vector2d[] pos ){
         animals= new ArrayList<Animal>();
         this.map=map;
         this.moves=moves;
@@ -26,6 +26,8 @@ public class SimulationEngine implements IEngine{
         while(i<moves.length){
                 for(int j=0; j<n; j++){
                     animals.get(j).move(moves[i]);
+                    //Animal animal=map.objectAt(pos[j]);
+                   // animal.move(moves[i]);
                     System.out.println((moves[i]));
                     System.out.println(map);
                     i++;
@@ -33,7 +35,6 @@ public class SimulationEngine implements IEngine{
                         break;
                     }
                 }
-
         }
 
         System.out.println(map);

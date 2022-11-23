@@ -2,7 +2,7 @@ package agh.ics.oop;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 public class IWorldMapTest {
-    IWorldMap map;
+    AbstractWorldMap map;
     Vector2d position= new Vector2d(5,5);
     @Test
     void ObjectAtOccupiedTestRM(){
