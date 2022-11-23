@@ -1,8 +1,7 @@
 package agh.ics.oop;
 import java.util.ArrayList;
 
-class RectangularMap implements IWorldMap {
-    public ArrayList<Animal> animals;
+class RectangularMap extends AbstractWorldMap {
     private int h;
     private int w;
     public RectangularMap(int width, int height){
@@ -30,25 +29,12 @@ class RectangularMap implements IWorldMap {
         return false;
     }
     public boolean isOccupied(Vector2d position){
-        for(int i=0; i<animals.size(); i++){
-            if(position.equals(animals.get(i).getPos())){
-                return true;
-            }
-        }
-        return false;
+        return super.isOccupied(position);
     }
     public Object objectAt(Vector2d position){
-        for(int i=0; i<animals.size(); i++){
-            if(position.equals(animals.get(i).getPos())){
-                return animals.get(i);
-            }
-        }
-        return null;
+        return super.objectAt(position);
     }
-    public String toString(){
-        MapVisualizer mV= new MapVisualizer(this);
-        Vector2d lowerL= new Vector2d(0, 0);
-        Vector2d upperR= new Vector2d(w, h);
-        return mV.draw(lowerL, upperR);
+    Vector2d findUpperRight(){
+        return new Vector2d(w, h);
     }
 }
