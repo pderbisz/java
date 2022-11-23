@@ -30,6 +30,18 @@ public class SimulationEngineTest {
 
     }
     @Test
+    void farTest(){
+        Vector2d result1 = new Vector2d(2, 13);
+        String[] strMoves={"f", "f", "f", "f", "f", "f", "f", "f", "f", "f", "f"};
+        MoveDirection[] directions = new OptionsParser().parse(strMoves);
+        AbstractWorldMap map = new GrassField(10);
+        Vector2d[] positions = { new Vector2d(2,2)};
+        SimulationEngine engine = new SimulationEngine(directions, map, positions);
+        engine.run();
+        assertEquals(engine.animals.get(0).getPos(), result1);
+
+    }
+    @Test
     void spawnTest1(){
         Vector2d testVector= new Vector2d(2, 2);
         String[] strMoves={};
