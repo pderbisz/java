@@ -18,6 +18,15 @@ public class SimulationEngine implements IEngine{
             animals.add(t);
             map.place(t);
         }
+     //   System.out.println(map.boundary.objectsX);
+      //  System.out.println(map.boundary.objectsY);
+       // System.out.println("Largest x");
+     //   System.out.println(map.boundary.objectsX.last().getPos());
+      //  System.out.println(map.boundary.objectsX.last());
+     //   System.out.println("Largest y");
+       // System.out.println(map.boundary.objectsY.last().getPos());
+
+
     }
     public void run(){
         System.out.println(map);
@@ -31,6 +40,7 @@ public class SimulationEngine implements IEngine{
                     System.out.println((moves[i]));
                     System.out.println(map);
                     i++;
+
                     if(i>=moves.length){
                         break;
                     }

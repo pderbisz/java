@@ -1,29 +1,25 @@
 package agh.ics.oop;
+import agh.ics.oop.gui.App;
+import javafx.application.Application;
+
 import static java.lang.System.out;
 public class World {
+
     public static void main(String[] args){
-        out.println("system wystartował");
 
-       /* RectangularMap test= new RectangularMap(4, 4);
-        Animal sheep = new Animal(test);
-        MoveDirection[] steer= OptionsParser.parse(args);
-        for(int i=0; i<steer.length; i++){
 
-            sheep.move(steer[i]);
+        try {
+            out.println("system wystartował");
+            Application.launch(App.class, args);
 
+            out.println("system zakończył działanie");
+        } catch(IllegalArgumentException ex) {
+          //  out.println("test");
+            out.println(ex);
+            return;
         }
-        out.println(test.animals);
-        out.println(test);
-        //out.println(sheep);
-        */
-        MoveDirection[] directions = new OptionsParser().parse(args);
-     //   IWorldMap map = new RectangularMap(10, 5);
-        AbstractWorldMap map = new GrassField(10);
-        Vector2d[] positions = { new Vector2d(2,2), new Vector2d(3,4)};
-        IEngine engine = new SimulationEngine(directions, map, positions);
-        out.println("test");
-        engine.run();
-        out.println("system zakończył działanie");
+
+
     }
     static void run(Direction[] dirs){
         int size=dirs.length;

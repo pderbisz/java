@@ -27,7 +27,7 @@ class RectangularMap extends AbstractWorldMap {
     public Object objectAt(Vector2d position){
         return super.objectAt(position);
     }
-    Vector2d findUpperRight(){
+    public Vector2d findUpperRight(){
         return new Vector2d(w, h);
     }
 }

@@ -5,10 +5,19 @@ import java.util.HashMap;
 import java.lang.Math;
 import java.util.Collections;
 import java.util.*;
+
+import static java.lang.System.out;
+
 public class GrassField extends AbstractWorldMap{
     private int n;
     private HashMap<Vector2d, Grass> grasses;
+    //private MapBoundary boundary;
+  //  private ArrayList<IPositionChangeObserver> observers;
+
     public GrassField(int n){
+        boundary=new MapBoundary();
+     //   observers= new ArrayList<IPositionChangeObserver>();
+      //  boundary
         this.n=n;
         grasses=new HashMap<Vector2d, Grass>();
         animals=new HashMap<Vector2d, Animal>();
@@ -22,9 +31,21 @@ public class GrassField extends AbstractWorldMap{
             Vector2d newVector= new Vector2d(randA, randB);
             if(grasses.get(newVector)== null){
                 Grass newGrass= new Grass(newVector);
+                newGrass.objectPriority=0;
+               // System.out.println("to to: ");
+                //System.out.println(newGrass.getObservers());
+                newGrass.addObserver(boundary);
+                //out.println("test123");
                 grasses.put(newVector, newGrass);
-                k+=1;
+                boundary.objectsX.add(newGrass);
+                boundary.objectsY.add(newGrass);
+                k++;
             }
+            Grass testGrass= new Grass(new Vector2d(11,2));
+            testGrass.objectPriority=0;
+            grasses.put(newVector, testGrass);
+            boundary.objectsX.add(testGrass);
+            boundary.objectsY.add(testGrass);
 
         }
         //System.out.println(grasses.get(0));
@@ -51,7 +72,7 @@ public class GrassField extends AbstractWorldMap{
         }
         return grasses.get(position);
     }
-    Vector2d findUpperRight(){
+    public Vector2d findUpperRight(){
         int maxX=0;
         int maxY=0;
         Iterator<Vector2d> itrA=animals.keySet().iterator();
@@ -68,4 +89,5 @@ public class GrassField extends AbstractWorldMap{
         }
         return new Vector2d(maxX, maxY);
     }
+
 }

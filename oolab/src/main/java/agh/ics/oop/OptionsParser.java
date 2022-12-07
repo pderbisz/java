@@ -12,6 +12,10 @@ public class OptionsParser {
                 size++;
 
             }
+            else{
+              //  System.out.println("testttt");
+                throw new IllegalArgumentException(s[i] + " is not legal move specification");
+            }
 
 
         }
