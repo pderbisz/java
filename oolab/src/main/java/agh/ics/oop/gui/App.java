@@ -47,13 +47,13 @@ public class App extends Application {
             gridPane.add(label1,0,height-i+1,1,1);
         }
         for(int i=1; i<=width+1; i++){
-            Integer a=i;
+            Integer a=i-1;
             Label label1= new Label(a.toString());
             gridPane.add(label1,i,0,1,1);
         }
         Integer h=height+1;
         Integer w=width;
-        Label label0= new Label(h.toString()+"/" + "0");
+        Label label0= new Label("y / x");
         gridPane.add(label0,0,0,1,1);
         for(int i=0; i<=height; i++){
             for(int j=0; j<=width; j++){
